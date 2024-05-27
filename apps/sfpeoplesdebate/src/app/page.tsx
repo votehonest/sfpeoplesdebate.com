@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './page.module.scss';
+import { Seo } from './seo';
 
 const Info = ({
   title,
@@ -54,6 +55,7 @@ const Hero = () => (
 export default function Index() {
   return (
     <div className={styles.page}>
+      <Seo />
       <header className={styles.header}>
         <div className={styles.left}>
           <Hero />
