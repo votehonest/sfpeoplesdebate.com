@@ -68,7 +68,7 @@ export default function Index() {
       </header>
       <main className={styles.main}>
         <h3>The San Francisco People’s Debate</h3>
-        <h4>Organized by</h4>
+        <h4>Organizers</h4>
         <div className={styles.organizers}>
           <div className={styles.organizer}>
             <Link
