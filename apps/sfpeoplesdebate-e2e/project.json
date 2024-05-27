@@ -1,0 +1,9 @@
+{
+  "name": "sfpeoplesdebate-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/sfpeoplesdebate-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["sfpeoplesdebate"],
+  "// targets": "to see all targets run: nx show project sfpeoplesdebate-e2e --web",
+  "targets": {}
+}

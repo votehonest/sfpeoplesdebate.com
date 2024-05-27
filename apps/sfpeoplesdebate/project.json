@@ -1,0 +1,9 @@
+{
+  "name": "sfpeoplesdebate",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/sfpeoplesdebate",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project sfpeoplesdebate --web",
+  "targets": {}
+}
