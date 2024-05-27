@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from './page.module.scss';
-import { Seo } from './seo';
+import { metadata } from './metadata';
 
 const Info = ({
   title,
@@ -42,6 +42,7 @@ const Hero = () => (
           <InfoCards />
         </div>
         <div className={styles.heroContentRight}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/statue.png"
             alt="The San Francisco People’s Debate for Mayor 2024"
@@ -52,10 +53,36 @@ const Hero = () => (
   </div>
 );
 
+export const generateMetadata = () => {
+  return {
+    title: metadata.title,
+    description: metadata.description,
+    twitter: {
+      cardType: 'summary_large_image',
+    },
+    openGraph: {
+      images: [
+        {
+          url: '/social/fb.png',
+        },
+      ],
+    },
+    additionalMetaTags: [
+      {
+        name: 'twitter:title',
+        content: metadata.title,
+      },
+      {
+        name: 'twitter:image',
+        content: '/social/x.png',
+      },
+    ],
+  };
+};
+
 export default function Index() {
   return (
     <div className={styles.page}>
-      <Seo />
       <header className={styles.header}>
         <div className={styles.left}>
           <Hero />
