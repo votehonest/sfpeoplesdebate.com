@@ -69,6 +69,7 @@ export const generateMetadata = (): Metadata => {
           type: 'image/png',
           width: 2400,
           height: 1260,
+          alt: metadata.title,
         },
       ],
     },
