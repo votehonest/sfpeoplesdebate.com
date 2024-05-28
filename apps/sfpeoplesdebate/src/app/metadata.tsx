@@ -5,4 +5,5 @@ export const metadata = {
       debates between the candidates for Mayor of San Francisco held
       in Mission Dolores Park on Saturdays from 1 PM - 3 PM.
     `.replace(/\s+/g, ' '),
+  metadataBase: new URL('https://sfpeoplesdebate.com'),
 };
