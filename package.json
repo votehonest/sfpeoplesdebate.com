@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
-    "build": "nx build"
+    "build": "nx build",
+    "prisma": "prisma",
+    "vercel-build": "prisma generate && prisma migrate deploy && nx build"
   },
   "private": true,
   "dependencies": {

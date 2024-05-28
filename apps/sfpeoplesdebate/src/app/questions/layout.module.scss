@@ -1,0 +1,22 @@
+.container {
+  padding: 1rem;
+  margin: 2rem;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+}

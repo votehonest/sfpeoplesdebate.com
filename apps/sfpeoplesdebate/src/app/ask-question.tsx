@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import styles from './ask-question.module.scss';
+import Link from 'next/link';
 
 const submitToApiEndpoint = async (question: string, name: string) => {
   const response = await fetch('/api/ask-question', {
@@ -14,6 +15,7 @@ const submitToApiEndpoint = async (question: string, name: string) => {
 };
 
 export const AskQuestion = () => {
+  const [response, setResponse] = useState<any | null>(null);
   const [question, setQuestion] = useState('');
   const [name, setName] = useState('');
   const submit = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -22,8 +24,7 @@ export const AskQuestion = () => {
 
     try {
       const response = await submitToApiEndpoint(question, name);
-
-      window.alert(JSON.stringify({ response }));
+      setResponse(response);
     } catch (error) {
       window.alert(
         JSON.stringify({ error, message: (error as Error).message })
@@ -49,6 +50,15 @@ export const AskQuestion = () => {
           <button className={styles.button} onClick={submit}>
             Ask
           </button>
+          {response && (
+            <div className={styles.response}>
+              {response.editQuestionUrl && (
+                <Link href={response.editQuestionUrl}>
+                  <button className={styles.button}>Open</button>
+                </Link>
+              )}
+            </div>
+          )}
         </form>
       </div>
     </>
