@@ -1,4 +1,4 @@
-import { prisma } from '../api/prisma';
+import { prisma } from '../../api/prisma';
 import { Question as QuestionUi } from './[id]/question';
 import styles from './page.module.scss';
 

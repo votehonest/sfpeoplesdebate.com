@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { prisma } from '../../api/prisma';
+import { prisma } from '../../../api/prisma';
 import { Question } from './question';
 import styles from './page.module.scss';
 

@@ -17,8 +17,9 @@ const submitToApiEndpoint = async (question: string, name: string) => {
   return response.json();
 };
 
-export const AskQuestion = () => {
+export const AskQuestion = ({ showOpenButton = false }) => {
   const [response, setResponse] = useState<any | null>(null);
+  const [loading, setLoading] = useState(false);
   const [question, setQuestion] = useState('');
   const [name, setName] = useState('');
   const submit = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -26,14 +27,26 @@ export const AskQuestion = () => {
     console.log('submit');
 
     try {
+      setLoading(true);
       const response = await submitToApiEndpoint(question, name);
       setResponse(response);
     } catch (error) {
       window.alert(
         JSON.stringify({ error, message: (error as Error).message })
       );
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (response) {
+    return (
+      <div className={styles.container} id="ask">
+        <h5>Thank you for your question</h5>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className={styles.container} id="ask">
@@ -50,10 +63,10 @@ export const AskQuestion = () => {
             defaultValue={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <button className={styles.button} onClick={submit}>
-            Ask
+          <button className={styles.button} onClick={submit} disabled={loading}>
+            {loading ? 'Asking...' : 'Ask'}
           </button>
-          {response && (
+          {showOpenButton && response && (
             <div className={styles.response}>
               {response.editQuestionUrl && (
                 <Link href={response.editQuestionUrl}>
