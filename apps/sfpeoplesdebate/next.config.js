@@ -3,6 +3,8 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { composePlugins, withNx } = require('@nx/next');
 
+const PACIFIC_DATE = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+
 /**
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  **/
@@ -13,7 +15,7 @@ const nextConfig = {
     svgr: false,
   },
   env: {
-    NEXT_PUBLIC_BUILD_DATE: new Date().toISOString(),
+    NEXT_PUBLIC_BUILD_DATE: PACIFIC_DATE.toISOString(),
   }
 };
 
