@@ -3,6 +3,8 @@ import { prisma } from '../../api/prisma';
 import { Question as QuestionUi } from './[id]/question';
 import styles from './page.module.scss';
 
+export const revalidate = 0;
+
 const getData = async () => {
   const questions = await prisma.question.findMany({
     where: {
