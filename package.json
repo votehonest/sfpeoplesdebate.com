@@ -5,7 +5,7 @@
   "scripts": {
     "nx": "nx",
     "build": "nx build",
-    "vercel-build": "nx build"
+    "vercel-build": "nx build sfpeoplesdebate"
   },
   "private": true,
   "dependencies": {
