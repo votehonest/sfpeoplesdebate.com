@@ -12,6 +12,9 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  env: {
+    NEXT_PUBLIC_BUILD_DATE: new Date().toISOString(),
+  }
 };
 
 const plugins = [

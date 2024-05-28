@@ -87,6 +87,8 @@ export const generateMetadata = (): Metadata => {
   };
 };
 
+const BUILD_DATE = new Date(`${process.env.NEXT_PUBLIC_BUILD_DATE ?? ''}`);
+
 export default function Index() {
   return (
     <div className={styles.page}>
@@ -140,7 +142,14 @@ export default function Index() {
           </div>
         </div>
         <p>
-          <small>Last updated May 27, 2024</small>
+          <small>
+            Last updated{' '}
+            {BUILD_DATE.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </small>
         </p>
       </main>
     </div>
