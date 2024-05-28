@@ -60,12 +60,12 @@ export const generateMetadata = (): Metadata => {
     description: metadata.description,
     twitter: {
       card: 'summary_large_image',
-      images: [{ url: '/social/x.png' }],
+      images: [{ url: '/twitter-image.png' }],
     },
     openGraph: {
       images: [
         {
-          url: '/social/og.png',
+          url: '/opengraph-image.png',
           type: 'image/png',
           width: 2400,
           height: 1260,
