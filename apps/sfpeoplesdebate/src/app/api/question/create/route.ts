@@ -1,4 +1,4 @@
-import { prisma } from './prisma';
+import { prisma } from '../../prisma';
 
 export async function POST(request: Request) {
   const { question, name } = await request.json();

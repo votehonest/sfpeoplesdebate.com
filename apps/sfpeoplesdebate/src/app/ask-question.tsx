@@ -4,12 +4,15 @@ import styles from './ask-question.module.scss';
 import Link from 'next/link';
 
 const submitToApiEndpoint = async (question: string, name: string) => {
-  const response = await fetch('/api/ask-question', {
+  const response = await fetch('/api/question/create', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ question, name }),
+    body: JSON.stringify({
+      question,
+      name,
+    }),
   });
   return response.json();
 };

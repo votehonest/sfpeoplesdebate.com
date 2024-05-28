@@ -9,6 +9,14 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
+enum Status {
+  PENDING  @map("pending")
+  ASKED    @map("asked")
+  ACCEPTED @map("accepted")
+  ANSWERED @map("answered")
+  REJECTED @map("rejected")
+}
+
 model Question {
   id        String   @id @unique @default(uuid())
   createdAt DateTime @default(now())
@@ -16,4 +24,5 @@ model Question {
   question String
   name     String?
   token    String  @unique @default(uuid())
+  status   Status  @default(PENDING)
 }

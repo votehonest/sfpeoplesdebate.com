@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { prisma } from '../../api/ask-question/prisma';
+import { prisma } from '../../api/prisma';
 import { Question } from './question';
 import styles from './page.module.scss';
 
@@ -18,11 +18,11 @@ export default async function Index({
 }) {
   const data = await getData(id);
   return (
-    <>
+    <div className={styles.container}>
       <Question {...data} />
       <Link href={`/questions`} className={styles.backLink}>
         See other questions
       </Link>
-    </>
+    </div>
   );
 }
