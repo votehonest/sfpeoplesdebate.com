@@ -12,7 +12,7 @@ export const Seo = () => {
       openGraph={{
         images: [
           {
-            url: '/social/fb.png',
+            url: '/social/og.png',
           },
         ],
       }}

@@ -63,7 +63,7 @@ export const generateMetadata = () => {
     openGraph: {
       images: [
         {
-          url: '/social/fb.png',
+          url: '/social/og.png',
         },
       ],
     },
