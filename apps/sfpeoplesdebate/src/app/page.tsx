@@ -70,6 +70,7 @@ export const generateMetadata = (): Metadata => {
           width: 2400,
           height: 1260,
           alt: metadata.title,
+          secureUrl: '/opengraph-image.png',
         },
       ],
     },
