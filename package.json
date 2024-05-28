@@ -6,7 +6,7 @@
     "nx": "nx",
     "build": "nx build",
     "prisma": "prisma",
-    "vercel-build": "prisma generate && prisma migrate deploy && nx build"
+    "vercel-build": "prisma generate && prisma migrate deploy && nx build sfpeoplesdebate"
   },
   "private": true,
   "dependencies": {
