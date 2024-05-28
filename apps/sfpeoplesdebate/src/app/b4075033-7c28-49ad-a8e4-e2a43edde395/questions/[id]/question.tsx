@@ -23,6 +23,9 @@ export const Question = ({
   const router = useRouter();
 
   const LinkToQuestion: FC<PropsWithChildren> = ({ children }) => {
+    if (!asLink) {
+      return <>{children}</>;
+    }
     return (
       <Link className={styles.link} href={`/questions/${id}`}>
         {children}
@@ -33,19 +36,29 @@ export const Question = ({
   const updateQuestion = useCallback(
     async (status: Status) => {
       setIsLoading(true);
-      const response = await fetch('/api/question/update', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ id, status }),
-      });
-      setIsLoading(false);
-      setStatus(status);
-      return response.json();
+      try {
+        const response = await fetch('/api/question/update', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id, status }),
+        });
+        setIsLoading(false);
+        setStatus(status);
+        return response.json();
+      } catch (e) {
+        alert(`Error updating question: ${e}`);
+        setIsLoading(false);
+        console.error(e);
+      }
     },
     [id]
   );
+
+  if (status === 'DELETED') {
+    return null;
+  }
 
   return (
     <div
@@ -116,6 +129,23 @@ export const Question = ({
               }}
             >
               Approve
+            </button>
+          )}
+          {status === 'REJECTED' && (
+            <button
+              data-type="error"
+              disabled={isLoading}
+              onClick={() => {
+               const shouldDelete = confirm(
+                 'Are you sure you want to delete this question?'
+               );
+
+               if (shouldDelete) {
+                 updateQuestion('DELETED');
+               }
+              }}
+            >
+              Delete
             </button>
           )}
           {(status === 'PENDING' || status === 'ACCEPTED') && (

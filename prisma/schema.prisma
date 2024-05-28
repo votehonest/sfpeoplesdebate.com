@@ -15,6 +15,7 @@ enum Status {
   ACCEPTED @map("accepted")
   ANSWERED @map("answered")
   REJECTED @map("rejected")
+  DELETED  @map("deleted")
 }
 
 model Question {
