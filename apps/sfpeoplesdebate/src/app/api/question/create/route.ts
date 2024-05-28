@@ -1,3 +1,4 @@
+import { Status } from '@prisma/client';
 import { prisma } from '../../prisma';
 
 export async function POST(request: Request) {
@@ -8,6 +9,7 @@ export async function POST(request: Request) {
       data: {
         question,
         name,
+        status: Status.PENDING,
       },
     });
 
