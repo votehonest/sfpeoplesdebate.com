@@ -4,7 +4,7 @@ import { Question } from './question';
 import styles from './page.module.scss';
 
 
-export const revalidate = 0;
+export const revalidate = 1;
 
 const getData = async (id: string) => {
   const questions = await prisma.question.findFirstOrThrow({
