@@ -3,6 +3,8 @@ import { Question } from './[id]/question';
 import styles from './page.module.scss';
 
 const getData = async () => {
+  //  await prisma.question.deleteMany();
+
   const questions = await prisma.question.findMany({
     where: {
       question: {

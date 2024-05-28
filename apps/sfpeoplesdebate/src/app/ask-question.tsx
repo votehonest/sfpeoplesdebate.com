@@ -33,7 +33,7 @@ export const AskQuestion = () => {
   };
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} id="ask">
         <form>
           <textarea
             className={styles.question}

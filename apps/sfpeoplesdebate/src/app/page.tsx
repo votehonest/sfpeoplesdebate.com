@@ -39,6 +39,11 @@ const Hero = () => (
         Hear from the candidates for San Francisco Mayor you{' '}
         <strong>haven’t</strong> heard from
       </p>
+      <Link href="#ask" className={styles.heroButtonLink}>
+        <button className={styles.heroButton}>
+          Ask the candidates a question &darr;
+        </button>
+      </Link>
       <div className={styles.heroContent}>
         <div className={styles.heroContentLeft}>
           <InfoCards />

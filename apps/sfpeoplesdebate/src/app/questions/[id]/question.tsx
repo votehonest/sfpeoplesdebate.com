@@ -7,6 +7,7 @@ export const Question = ({ id, question, name, createdAt }: IQuestion) => {
     <div className={styles.container}>
       <Link className={styles.link} href={`/questions/${id}`}>
         <h2>{question}</h2>
+        <div className={styles.divider} />
         <p>
           <strong>{name || 'Anonymous'}</strong>
         </p>
