@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from './page.module.scss';
 import { metadata } from './metadata';
+import { Metadata } from 'next';
 
 const Info = ({
   title,
@@ -53,12 +54,13 @@ const Hero = () => (
   </div>
 );
 
-export const generateMetadata = () => {
+export const generateMetadata = (): Metadata => {
   return {
     title: metadata.title,
     description: metadata.description,
     twitter: {
-      cardType: 'summary_large_image',
+      card: 'summary_large_image',
+      images: [{ url: '/social/x.png' }],
     },
     openGraph: {
       images: [
@@ -67,16 +69,16 @@ export const generateMetadata = () => {
         },
       ],
     },
-    additionalMetaTags: [
-      {
-        name: 'twitter:title',
-        content: metadata.title,
-      },
-      {
-        name: 'twitter:image',
-        content: '/social/x.png',
-      },
-    ],
+    // additionalMetaTags: [
+    //   {
+    //     name: 'twitter:title',
+    //     content: metadata.title,
+    //   },
+    //   {
+    //     name: 'twitter:image',
+    //     content: '/social/x.png',
+    //   },
+    // ],
   };
 };
 
