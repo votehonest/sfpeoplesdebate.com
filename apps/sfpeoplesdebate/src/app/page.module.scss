@@ -33,6 +33,32 @@
   padding: 4rem 1rem;
   text-align: center;
 
+  .heroButton {
+    text-decoration: none;
+    color: white;
+    background-color: var(--color-secondary);
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    border: 0;
+
+    &:hover {
+      background-color: darken(#1D428A, 10%);
+    }
+  }
+
+  .heroButtonLink {
+    text-decoration: none;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+
   .heroLeft {
     display: flex;
     flex-direction: column;

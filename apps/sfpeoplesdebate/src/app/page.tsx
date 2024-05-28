@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styles from './page.module.scss';
 import { metadata } from './metadata';
 import { Metadata } from 'next';
+import { AskQuestion } from './ask-question';
 
 const Info = ({
   title,
@@ -38,6 +39,11 @@ const Hero = () => (
         Hear from the candidates for San Francisco Mayor you{' '}
         <strong>haven’t</strong> heard from
       </p>
+      <Link href="#ask" className={styles.heroButtonLink}>
+        <button className={styles.heroButton}>
+          Ask the candidates a question &darr;
+        </button>
+      </Link>
       <div className={styles.heroContent}>
         <div className={styles.heroContentLeft}>
           <InfoCards />
@@ -105,6 +111,8 @@ export default function Index() {
         </div>
       </header>
       <main className={styles.main}>
+        <h3>Submit your Question</h3>
+        <AskQuestion />
         <h3>The San Francisco People’s Debate</h3>
         <h4>Organizers</h4>
         <div className={styles.organizers}>
