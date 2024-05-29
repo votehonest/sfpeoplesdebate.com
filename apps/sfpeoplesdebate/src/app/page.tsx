@@ -112,6 +112,10 @@ export default function Index() {
       </header>
       <main className={styles.main} id="ask">
         <h3>Submit your Question</h3>
+        <p>
+          Have a question for the candidates? Submit it here and we’ll ask it
+          for you!
+        </p>
         <AskQuestion />
         <h3>The San Francisco People’s Debate</h3>
         <h4>Organizers</h4>
