@@ -136,13 +136,13 @@ export const Question = ({
               data-type="error"
               disabled={isLoading}
               onClick={() => {
-               const shouldDelete = confirm(
-                 'Are you sure you want to delete this question?'
-               );
+                const shouldDelete = confirm(
+                  'Are you sure you want to delete this question?'
+                );
 
-               if (shouldDelete) {
-                 updateQuestion('DELETED');
-               }
+                if (shouldDelete) {
+                  updateQuestion('DELETED');
+                }
               }}
             >
               Delete
@@ -159,7 +159,7 @@ export const Question = ({
               Reject
             </button>
           )}
-          {status !== 'ASKED' && <button data-type="primary">Edit</button>}
+          {/* {status !== 'ASKED' && <button data-type="primary">Edit</button>} */}
         </div>
       </footer>
     </div>
