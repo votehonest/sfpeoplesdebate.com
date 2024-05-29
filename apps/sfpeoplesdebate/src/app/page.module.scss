@@ -164,6 +164,14 @@
         padding: 2rem 1rem;
     }
 
+    a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     p {
         margin: 0;
     }

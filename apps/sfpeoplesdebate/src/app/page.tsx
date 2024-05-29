@@ -190,6 +190,15 @@ export default function Index() {
               month: 'long',
               day: 'numeric',
             })}
+          </small>{' '}
+          ∙{' '}
+          <small>
+            <Link
+              target="_blank"
+              href={'https://www.flickr.com/photos/livenature/4219728481'}
+            >
+              Photo credit
+            </Link>
           </small>
         </p>
       </main>
