@@ -10,8 +10,8 @@ const submitToApiEndpoint = async (question: string, name: string) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      question,
-      name,
+      question: question.trim(),
+      name: name.trim(),
     }),
   });
   return response.json();
@@ -63,7 +63,11 @@ export const AskQuestion = ({ showOpenButton = false }) => {
             defaultValue={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <button className={styles.button} onClick={submit} disabled={loading}>
+          <button
+            className={styles.button}
+            onClick={submit}
+            disabled={loading || question.trim().length === 0}
+          >
             {loading ? 'Asking...' : 'Ask'}
           </button>
           {showOpenButton && response && (
