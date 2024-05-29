@@ -11,6 +11,10 @@
     flex-direction: column;
     flex-grow: 1;
 
+    @media screen and (max-width: 768px){
+        margin: 1rem;
+    }
+
     &.asLink {
         cursor: pointer;
         &:hover {
