@@ -41,7 +41,7 @@ export const AskQuestion = ({ showOpenButton = false }) => {
 
   if (response) {
     return (
-      <div className={styles.container} id="ask">
+      <div className={styles.container}>
         <h5>Thank you for your question</h5>
       </div>
     );
@@ -49,7 +49,7 @@ export const AskQuestion = ({ showOpenButton = false }) => {
 
   return (
     <>
-      <div className={styles.container} id="ask">
+      <div className={styles.container}>
         <form>
           <textarea
             className={styles.question}

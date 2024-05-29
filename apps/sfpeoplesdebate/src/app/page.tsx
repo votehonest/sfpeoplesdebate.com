@@ -110,7 +110,7 @@ export default function Index() {
           />
         </div>
       </header>
-      <main className={styles.main}>
+      <main className={styles.main} id="ask">
         <h3>Submit your Question</h3>
         <AskQuestion />
         <h3>The San Francisco People’s Debate</h3>
