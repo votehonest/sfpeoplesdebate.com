@@ -5,6 +5,12 @@
     margin-bottom: 8rem;
 }
 
+@media screen and (max-width: 960px){
+    .container {
+        width: 100%;
+    }
+}
+
 .question {
     width: 100%;
     padding: 10px;
