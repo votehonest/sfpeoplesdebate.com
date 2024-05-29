@@ -155,7 +155,7 @@ export default function Index() {
           <div className={styles.organizer}>
             <Link
               target="_blank"
-              href="https://drive.google.com/file/d/1bfhCIDVccXWYS1j7PIbXwkLwAek69nYT/view"
+              href="https://drive.google.com/file/d/1SmcAsO_cgrWpRa4VfXlCbKsR8iWb_1tA/view"
             >
               Poster (letter size)
             </Link>
