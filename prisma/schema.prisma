@@ -19,11 +19,41 @@ enum Status {
 }
 
 model Question {
-  id        String   @id @unique @default(uuid())
-  createdAt DateTime @default(now())
+  id        String    @id @unique @default(uuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @default(now()) @updatedAt
 
   question String
   name     String?
   token    String  @unique @default(uuid())
   status   Status  @default(PENDING)
+
+  candidateQuestion CandidateQuestion[]
+}
+
+model Candidate {
+  id        String   @id @unique @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name  String
+  email String?
+  phone String?
+  token String  @unique @default(uuid())
+
+  candidateQuestion CandidateQuestion[]
+}
+
+model CandidateQuestion {
+  id        String   @id @unique @default(uuid())
+  createdAt DateTime @default(now())
+
+  status Status  @default(PENDING)
+  answer String?
+
+  candidateId String
+  candidate   Candidate @relation(fields: [candidateId], references: [id])
+
+  questionId String
+  question   Question @relation(fields: [questionId], references: [id])
 }
