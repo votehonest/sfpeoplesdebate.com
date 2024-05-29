@@ -149,6 +149,35 @@ export default function Index() {
             </Link>
           </div>
         </div>
+        <h4>Help promote</h4>
+        <p>Want to help get out the word? Print these out and distribute!</p>
+        <div className={styles.organizers}>
+          <div className={styles.organizer}>
+            <Link
+              target="_blank"
+              href="https://drive.google.com/file/d/1bfhCIDVccXWYS1j7PIbXwkLwAek69nYT/view"
+            >
+              Poster (letter size)
+            </Link>
+          </div>
+          <div className={styles.organizer}>
+            <Link
+              target="_blank"
+              href="https://drive.google.com/file/d/1bfhCIDVccXWYS1j7PIbXwkLwAek69nYT/view"
+            >
+              Large poster (legal size)
+            </Link>
+          </div>
+          <div className={styles.organizer}>
+            <Link
+              target="_blank"
+              href="https://drive.google.com/drive/folders/1IujK5KZRX-F6GOvulZlFG1eWs3gGuVyM"
+            >
+              Social media post
+            </Link>
+          </div>
+        </div>
+
         <p>
           <small>
             Last updated{' '}
