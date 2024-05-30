@@ -74,6 +74,10 @@ export async function POST(request: Request) {
     },
   });
 
+  console.log(
+    `Candidate ${candidate.firstName} ${candidate.lastName} updated question ${id} to status ${status}`
+  );
+
   // Return json response:
   try {
     const response = await prisma.question.findFirstOrThrow({
