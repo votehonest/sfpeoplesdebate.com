@@ -63,6 +63,9 @@
     &[disabled] {
         background-color: darken(#1D428A, 5%);
         color: white;
+    }
+
+    &.loading {
         cursor: progress;
     }
 }

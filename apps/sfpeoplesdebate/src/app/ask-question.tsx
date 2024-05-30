@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styles from './ask-question.module.scss';
 import Link from 'next/link';
 import { track } from '@vercel/analytics';
+import cx from 'clsx';
 
 const submitToApiEndpoint = async (question: string, name: string) => {
   const response = await fetch('/api/question/create', {
@@ -72,7 +73,9 @@ export const AskQuestion = ({ showOpenButton = false }) => {
             onChange={(e) => setName(e.target.value)}
           />
           <button
-            className={styles.button}
+            className={cx(styles.button, {
+              loading,
+            })}
             onClick={submit}
             disabled={loading || question.trim().length === 0}
           >
