@@ -75,7 +75,7 @@ export async function POST(request: Request) {
   });
 
   console.log(
-    `Candidate ${candidate.firstName} ${candidate.lastName} updated question ${id} to status ${status}`
+    `Candidate ${candidate.firstName} ${candidate.lastName} updated question ${id} to status ${status}: ${question.question}`
   );
 
   // Return json response:
