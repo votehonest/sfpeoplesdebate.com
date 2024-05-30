@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { FC, PropsWithChildren, useCallback, useMemo, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import cx from 'clsx';
+import { track } from '@vercel/analytics';
 
 type CandidateQuestionDetails = CandidateQuestion & {
   candidate: Candidate;
@@ -55,6 +56,11 @@ export const Question = ({
 
   const updateQuestion = useCallback(
     async (status: Status) => {
+      track('update-question', {
+        question: JSON.parse(JSON.stringify(question)),
+        newStatus: status,
+        candidateToken: `${candidateToken}`,
+      });
       setIsLoading(true);
       try {
         const response = await fetch('/api/question/update', {
@@ -81,7 +87,7 @@ export const Question = ({
         console.error(e);
       }
     },
-    [candidateToken, id]
+    [candidateToken, id, question]
   );
 
   if (status === 'DELETED') {
