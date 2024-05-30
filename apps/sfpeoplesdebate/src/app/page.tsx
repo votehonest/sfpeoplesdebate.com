@@ -153,6 +153,18 @@ export default function Index() {
             </Link>
           </div>
         </div>
+
+        <h4>Contact</h4>
+        <p>
+          Questions or feedback?{' '}
+          <strong>
+            <Link href="mailto:honest@votehonest.org,s.shariati86@gmail.com?subject=San%20Francisco%20People's%20Debate%20for%20Mayor%202024">
+              Contact the organizers
+            </Link>
+          </strong>
+          .
+        </p>
+
         <h4>Help promote</h4>
         <p>Want to help get out the word? Print these out and distribute!</p>
         <div className={styles.organizers}>
