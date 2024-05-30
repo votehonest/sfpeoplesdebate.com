@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import styles from './ask-question.module.scss';
 import Link from 'next/link';
+import { track } from '@vercel/analytics';
 
 const submitToApiEndpoint = async (question: string, name: string) => {
   const response = await fetch('/api/question/create', {
@@ -24,13 +25,20 @@ export const AskQuestion = ({ showOpenButton = false }) => {
   const [name, setName] = useState('');
   const submit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log('submit');
 
     try {
       setLoading(true);
       const response = await submitToApiEndpoint(question, name);
       setResponse(response);
+      track('ask-question', {
+        question: question.trim(),
+        name: name.trim(),
+        response,
+      });
     } catch (error) {
+      track('ask-question-error', {
+        error: (error as Error).message,
+      });
       window.alert(
         JSON.stringify({ error, message: (error as Error).message })
       );
