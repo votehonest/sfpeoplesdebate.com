@@ -91,7 +91,7 @@ export async function GET(request: Request) {
       {
         candidates: allCandidates.map((candidate) => ({
           ...candidate,
-          url: `/questions/${candidate.token}/`,
+          url: `/admin/${candidate.token}/`,
         })),
       },
       null,
