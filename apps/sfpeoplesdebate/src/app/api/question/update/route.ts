@@ -3,8 +3,9 @@ import { prisma } from '../../prisma';
 import { Status } from '@prisma/client';
 
 export async function POST(request: Request) {
-  const { status, id } = await request.json();
+  const { status, id, candidateToken } = await request.json();
 
+  assert(typeof candidateToken === 'string', 'candidateToken is required');
   assert(typeof status === 'string', 'status is required');
   assert(
     Object.keys(Status).includes(status),
@@ -12,21 +13,91 @@ export async function POST(request: Request) {
   );
   assert(typeof id === 'string', 'id is required');
 
+  // Check token:
+
+  const candidate = await prisma.candidate.findFirst({
+    where: {
+      token: candidateToken,
+    },
+  });
+
+  if (!candidate) {
+    return new Response(
+      JSON.stringify({
+        message: 'Error updating question',
+        error: `Invalid token: ${candidateToken}`,
+      }),
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+  }
+
+  const question = await prisma.question.findFirst({
+    where: {
+      id,
+    },
+  });
+
+  if (!question) {
+    return new Response(
+      JSON.stringify({
+        message: 'Error updating question',
+        error: `Invalid question id: ${id}`,
+      }),
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+  }
+
+  await prisma.candidateQuestion.create({
+    data: {
+      candidateId: candidate.id,
+      questionId: id,
+      status: status as Status,
+    },
+  });
+
+  await prisma.question.update({
+    where: {
+      id,
+    },
+    data: {
+      status: status as Status,
+    },
+  });
+
   // Return json response:
   try {
-    const response = await prisma.question.update({
+    const response = await prisma.question.findFirstOrThrow({
       where: {
         id,
       },
-      data: {
-        status: status as Status,
+      include: {
+        candidateQuestions: {
+          orderBy: {
+            createdAt: 'desc',
+          },
+          include: {
+            candidate: true,
+          },
+        },
       },
     });
 
     return new Response(
       JSON.stringify({
         message: 'Question updated!',
-        data: { response },
+        data: {
+          question: response,
+        },
         editQuestionUrl: `/questions/${response.id}`,
       }),
       {

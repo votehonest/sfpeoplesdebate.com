@@ -11,6 +11,18 @@
     flex-direction: column;
     flex-grow: 1;
 
+    .candidateQuestion {
+        margin-bottom: 1rem;
+    }
+
+    .otherActions {
+        tr {
+            td {
+                padding: 0.25rem 0.75rem;
+            }
+        }
+    }
+
     @media screen and (max-width: 768px){
         margin: 0.5rem 0;
     }

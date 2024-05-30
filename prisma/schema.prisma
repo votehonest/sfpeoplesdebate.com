@@ -28,7 +28,7 @@ model Question {
   token    String  @unique @default(uuid())
   status   Status  @default(PENDING)
 
-  candidateQuestion CandidateQuestion[]
+  candidateQuestions CandidateQuestion[]
 }
 
 model Candidate {
@@ -36,12 +36,18 @@ model Candidate {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  name  String
-  email String?
-  phone String?
-  token String  @unique @default(uuid())
+  firstName  String?
+  middleName String?
+  lastName   String?
+  email      String?
+  phone      String?
+  notes      String?
+  token      String  @unique @default(uuid())
+  active     Boolean @default(true)
 
   candidateQuestion CandidateQuestion[]
+
+  @@unique([firstName, lastName])
 }
 
 model CandidateQuestion {

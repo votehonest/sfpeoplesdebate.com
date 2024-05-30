@@ -24,6 +24,16 @@ const getData = async () => {
     orderBy: {
       createdAt: 'desc',
     },
+    include: {
+      candidateQuestions: {
+        orderBy: {
+          createdAt: 'desc',
+        },
+        include: {
+          candidate: true,
+        },
+      },
+    },
   });
 
   return questions.filter(
@@ -37,7 +47,7 @@ export default async function Index() {
   return (
     <div className={styles.questions}>
       {data.map((question) => (
-        <QuestionUi key={question.id} {...question} />
+        <QuestionUi key={question.id} question={question} />
       ))}
     </div>
   );
