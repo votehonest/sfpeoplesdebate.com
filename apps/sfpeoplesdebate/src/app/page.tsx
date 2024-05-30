@@ -158,7 +158,7 @@ export default function Index() {
         <p>
           Questions or feedback?{' '}
           <strong>
-            <Link href="mailto:contact@votehonest.org,s.shariati86@gmail.com?subject=San%20Francisco%20People's%20Debate%20for%20Mayor%202024">
+            <Link href="mailto:s.hughes321@hotmail.com,contact@votehonest.org,s.shariati86@gmail.com?subject=San%20Francisco%20People's%20Debate%20for%20Mayor%202024">
               Contact the organizers
             </Link>
           </strong>
