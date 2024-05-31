@@ -3,6 +3,12 @@ import styles from './page.module.scss';
 import { metadata } from './metadata';
 import { Metadata } from 'next';
 import { AskQuestion } from './ask-question';
+import 'add-to-calendar-button';
+import dynamic from 'next/dynamic';
+
+const AddToCalendarButton = dynamic(() => import('./add-to-calendar-button'), {
+  ssr: false,
+});
 
 const Info = ({
   title,
@@ -27,6 +33,9 @@ const InfoCards = () => {
         Every Saturday 1 PM - 3 PM until election day November 5, 2024
       </Info>
       <Info title="Where?">The Hidalgo Monument atop Mission Dolores Park</Info>
+      <center>
+        <AddToCalendarButton />
+      </center>
     </div>
   );
 };
