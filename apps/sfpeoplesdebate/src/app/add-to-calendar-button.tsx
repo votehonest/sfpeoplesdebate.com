@@ -15,7 +15,8 @@ export const AddToCalendarButton = () => {
       startTime="13:00"
       endTime="15:00"
       timeZone="America/Los_Angeles"
-      location="The Hidalgo Monument atop Mission Dolores Park"
+      location="The Mexican Liberty Bell at Dolores and 19th Street in Mission Dolores
+        Park"
       recurrence="weekly"
       recurrence_interval="1"
       recurrence_byDay="SA"

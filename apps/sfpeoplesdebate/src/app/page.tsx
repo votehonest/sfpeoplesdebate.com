@@ -32,7 +32,10 @@ const InfoCards = () => {
       <Info title="When?">
         Every Saturday 1 PM - 3 PM until election day November 5, 2024
       </Info>
-      <Info title="Where?">The Hidalgo Monument atop Mission Dolores Park</Info>
+      <Info title="Where?">
+        The Mexican Liberty Bell at Dolores and 19th Street in Mission Dolores
+        Park
+      </Info>
       <center>
         <AddToCalendarButton />
       </center>
